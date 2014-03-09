@@ -1,0 +1,43 @@
+$depot = "/vmfs/volumes/HDD2/tg3-3.135b.v50.1-offline_bundle-1502404.zip"
+$dryrun = $false
+$force = $false
+$maintenancemode = $true
+$noliveinstall = $true
+$nosigcheck = $true
+$proxy = $null
+$vibname = $null 
+$viburl = $null
+
+
+$esxcli = Get-EsxCli
+
+$esxcli.software.vib.update($depot,$dryrun,$force,$maintenancemode,$noliveinstall,$nosigcheck,$proxy,$vibname,$viburl)
+
+
+##dryrunで実行
+PowerCLI C:\Script> $esxcli.software.vib.update($depot,$dryrun,$force,$maintenancemode,$noliveinstall,$nosigcheck,$proxy,$vibname,$viburl)
+
+Message        : Dryrun only, host not changed. The following installers will be applied: [BootBankInstaller]
+RebootRequired : true
+VIBsInstalled  : {Broadcom_bootbank_net-tg3_3.135b.v50.1-1OEM.500.0.0.472560}
+VIBsRemoved    : {VMware_bootbank_net-tg3_3.123c.v55.5-1vmw.550.0.0.1331820}
+VIBsSkipped    :
+
+##初回実行
+PowerCLI C:\Script> $esxcli.software.vib.update($depot,$dryrun,$force,$maintenancemode,$noliveinstall,$nosigcheck,$proxy,$vibname,$viburl)
+
+Message        : The update completed successfully, but the system needs to be rebooted for the changes to be effective.
+RebootRequired : true
+VIBsInstalled  : {Broadcom_bootbank_net-tg3_3.135b.v50.1-1OEM.500.0.0.472560}
+VIBsRemoved    : {VMware_bootbank_net-tg3_3.123c.v55.5-1vmw.550.0.0.1331820}
+VIBsSkipped    :
+
+##2回目実行
+PowerCLI C:\Script> $esxcli.software.vib.update($depot,$dryrun,$force,$maintenancemode,$noliveinstall,$nosigcheck,$proxy,$vibname,$viburl)
+
+Message        : Host is not changed.
+RebootRequired : false
+VIBsInstalled  :
+VIBsRemoved    :
+VIBsSkipped    : {Broadcom_bootbank_net-tg3_3.135b.v50.1-1OEM.500.0.0.472560}
+
