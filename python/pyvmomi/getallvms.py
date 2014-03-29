@@ -25,6 +25,8 @@ from pyVmomi import vmodl
 import argparse
 import atexit
 import sys
+import pyVmomi
+
 
 
 def GetArgs():
@@ -38,6 +40,22 @@ def GetArgs():
    parser.add_argument('-p', '--password', required=True, action='store', help='Password to use when connecting to host')
    args = parser.parse_args()
    return args
+
+def GetVmInfo(vm):
+   """
+   Print information for a particular virtual machine.
+   """
+   summary = vm.summary
+   vminfo = {}
+   vminfo["name"] = summary.config.name
+   vminfo["vmPathName"] = summary.config.vmPathName
+   vminfo["instanceUuid"] = summary.config.instanceUuid
+   vminfo["numCpu"] = summary.config.numCpu
+   vminfo["memorySizeMB"] = summary.config.memorySizeMB
+   for device in vm.config.hardware.device:
+      if device.key == 4000:
+         vminfo["macAddress"] = device.macAddress
+   print vminfo
 
 
 def PrintVmInfo(vm):
@@ -86,8 +104,14 @@ def main():
       datacenter = content.rootFolder.childEntity[0]
       vmFolder = datacenter.vmFolder
       vmList = vmFolder.childEntity
-      for vm in vmList:
-         PrintVmInfo(vm)
+      for target in vmList:
+         if type(target) == pyVmomi.types.vim.Folder:
+            vms = target.childEntity
+            for vm in vms:
+               GetVmInfo(vm)
+         else:
+            vm = target
+            GetVmInfo(vm)
    except vmodl.MethodFault, e:
       print "Caught vmodl fault : " + e.msg
       return -1

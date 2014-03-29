@@ -16,6 +16,12 @@ def index(page=1):
     result = model.load(page)
     return template('index', result = result)
 
+#VMリストページ
+@route('/vmlist')
+def new():
+    model.vmlist()
+    return template('vmlist')
+
 
 #新規登録ページ
 @route('/new')

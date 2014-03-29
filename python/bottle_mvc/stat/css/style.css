@@ -32,3 +32,27 @@ body {
 .pager {
 	margin: 20px;
 }
+
+
+/*全てのボタン共通の設定*/
+.pure-button-success,
+.pure-button-error,
+.pure-button-warning,
+.pure-button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+/*それぞれのボタンの色の設定*/
+.pure-button-success {
+  background: rgb(28, 184, 65); /* 緑色 */
+}
+.pure-button-error {
+  background: rgb(202, 60, 60); /* えび茶色 */
+}
+.pure-button-warning {
+  background: rgb(223, 117, 20); /* オレンジ色 */
+}
+.pure-button-secondary {
+  background: rgb(66, 184, 221); /* 水色 */
+}

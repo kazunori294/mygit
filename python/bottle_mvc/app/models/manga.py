@@ -175,3 +175,31 @@ class Manga:
         fp.close()
 
         return
+
+
+    # ==========================================
+    #
+    # VM一覧を取得するやーつ
+    #
+    # ==========================================
+
+    def atask(self, page):
+
+        define_page = 100
+        start = (page - 1) * define_page
+
+        result = {}
+
+        sql = "select count(task_id) as all_count from task"
+        db.con.execute(sql)
+        result = db.con.fetchone()
+
+        result["pagination"] = pager.Pagination(page, define_page, result["all_count"])
+
+        sql = "select * from task order by task_id DESC"
+        sql += ' limit %s, %s'
+        db.con.execute(sql, (start, define_page))
+        result["tasklist"] = db.con.fetchall()
+
+        return result
+
