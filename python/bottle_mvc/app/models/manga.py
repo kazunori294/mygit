@@ -29,7 +29,6 @@ class Manga:
         sql += ' limit %s, %s'
         db.con.execute(sql, (start, define_page))
         result["tasklist"] = db.con.fetchall()
-
         return result
 
 
@@ -56,7 +55,6 @@ class Manga:
         sql += ' limit %s, %s'
         db.con.execute(sql, (start, define_page))
         result["iplists"] = db.con.fetchall()
-
         return result
 
 

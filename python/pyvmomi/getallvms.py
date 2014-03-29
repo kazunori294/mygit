@@ -27,7 +27,7 @@ import atexit
 import sys
 import pyVmomi
 
-
+vm = {}
 
 def GetArgs():
    """
@@ -46,16 +46,20 @@ def GetVmInfo(vm):
    Print information for a particular virtual machine.
    """
    summary = vm.summary
-   vminfo = {}
-   vminfo["name"] = summary.config.name
-   vminfo["vmPathName"] = summary.config.vmPathName
-   vminfo["instanceUuid"] = summary.config.instanceUuid
-   vminfo["numCpu"] = summary.config.numCpu
-   vminfo["memorySizeMB"] = summary.config.memorySizeMB
-   for device in vm.config.hardware.device:
-      if device.key == 4000:
-         vminfo["macAddress"] = device.macAddress
-   print vminfo
+   vminfo
+   
+   
+
+   #vminfo = {}
+   #vminfo["name"] = summary.config.name
+   #vminfo["vmPathName"] = summary.config.vmPathName
+   #vminfo["instanceUuid"] = summary.config.instanceUuid
+   #vminfo["numCpu"] = summary.config.numCpu
+   #vminfo["memorySizeMB"] = summary.config.memorySizeMB
+   #for device in vm.config.hardware.device:
+   #   if device.deviceInfo.summary == 'VLAN 12':
+   #      vminfo["macAddress"] = device.macAddress
+   #print vminfo
 
 
 def PrintVmInfo(vm):
