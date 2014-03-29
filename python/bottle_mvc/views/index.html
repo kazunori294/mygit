@@ -1,0 +1,50 @@
+{% include "inc/header" %}
+
+	<div class="menu">
+		<a href="/new"><button class="pure-button pure-button-primary pure-button-small">新しいIPアドレスを登録する</button></a>
+	</div>
+
+	<div class="box">
+		<table class="pure-table pure-table-horizontal">
+		    <thead>
+		        <tr>
+		            <th>IPアドレス</th>
+		            <th>ホスト名</th>
+		            <th>MACアドレス</th>
+		            <th>VLAN</th>
+		            <th>用途</th>
+		            <th>DHCP設定</th>
+		            <th> </th>
+		        </tr>
+		    </thead>
+
+		    <tbody>
+		    	{% for i in result.iplists %}
+		        <tr>
+		            <td>{{i.ipaddress}}</td>
+		            <td>{{i.hostname}}</td>
+		            <td>{{i.macaddress}}</td>
+		            <td>{{i.vlan}}</td>
+		            <td>{{i.purpose}}</td>
+		            <td><a href="/edit/{{i.id}}"><button class="pure-button pure-button-small">編集</button></a></td>
+			    <td>{{i.dhcp}}</td>
+		            <td><a href="/setdhcp/{{i.id}}"><button class="pure-button pure-button-small">DHCP有効化</button></a></td>
+		            <td><a href="/deldhcp/{{i.id}}"><button class="pure-button pure-button-small">DHCP無効化</button></a></td>
+		        </tr>
+		        {% endfor %}
+		    </tbody>
+		</table>
+	</div>
+
+	{% if result.pagination.has_next or result.pagination.has_prev %}
+	<div class="pager">
+		{% if result.pagination.has_prev %}
+		<a href="/{{result.pagination.page - 1}}"><button class="pure-button pure-button-small">&lt; 前のページ</button></a>
+		{% endif %}
+		{% if result.pagination.has_next %}
+		<a href="/{{result.pagination.page + 1}}"><button class="pure-button pure-button-small">次のページ &gt;</button></a>
+		{% endif %}
+	</div>
+	{% endif %}
+
+{% include "inc/footer" %}
