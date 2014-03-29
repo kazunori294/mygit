@@ -16,6 +16,7 @@ import time
 import math
 import sys
 import os
+import MySQLdb
 
 def GetArgs():
    """
@@ -28,7 +29,6 @@ def GetArgs():
    parser.add_argument('-p', '--password', required=True, action='store', help='Password to use when connecting to host')
    args = parser.parse_args()
    return args
-
 
 def main():
    """
@@ -99,6 +99,18 @@ def main():
                      task.info.descriptionId,
                      task.info.state
                   )
+                  starttime =  str(task.info.startTime).split(".")[0]
+                  username = task.info.reason.userName
+                  entityname = task.info.entityName
+                  descriptionid = task.info.descriptionId
+                  state = task.info.state
+
+                  db = MySQLdb.connect("localhost","root","","tech" )
+                  sql = "INSERT INTO task (task_startTime, task_userName, task_entityName, task_descriptionId, task_state) VALUES (%s, %s, %s, %s, %s)"
+                  cursor = db.cursor()
+                  cursor.execute(sql,(starttime, username, entityname, descriptionid, state))
+                  db.close()
+            
             except Exception, x:
                do = "nothing"
 
