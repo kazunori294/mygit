@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>vCenter タスク管理</title>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+        <link rel="stylesheet" href="/stat/css/style.css">
+</head>
+<body>
+        <div class="header">
+                <h1>vCenter タスク管理</h1>
+        </div>
+
+
+        <div class="menu">
+                <a href="/task"><button class="pure-button pure-button-primary pure-button-small">最新情報に更新する</button></a>
+        </div>
+
+	<div class="box">
+		<table class="pure-table pure-table-horizontal">
+		    <thead>
+		        <tr>
+		            <th>ID</th>
+		            <th>Start Time</th>
+		            <th>User Name</th>
+		            <th>Entity Name</th>
+		            <th>Description ID</th>
+		            <th>State</th>
+		        </tr>
+		    </thead>
+
+		    <tbody>
+		    	{% for i in result.tasklist %}
+		        <tr>
+		            <td>{{i.task_id}}</td>
+		            <td>{{i.task_startTime}}</td>
+		            <td>{{i.task_userName}}</td>
+		            <td>{{i.task_entityName}}</td>
+		            <td>{{i.task_descriptionId}}</td>
+			    <td>{{i.task_state}}</td>
+		        </tr>
+		        {% endfor %}
+		    </tbody>
+		</table>
+	</div>
+
+	{% if result.pagination.has_next or result.pagination.has_prev %}
+	<div class="pager">
+		{% if result.pagination.has_prev %}
+		<a href="/{{result.pagination.page - 1}}"><button class="pure-button pure-button-small">&lt; 前のページ</button></a>
+		{% endif %}
+		{% if result.pagination.has_next %}
+		<a href="/{{result.pagination.page + 1}}"><button class="pure-button pure-button-small">次のページ &gt;</button></a>
+		{% endif %}
+	</div>
+	{% endif %}
+
+{% include "inc/footer" %}

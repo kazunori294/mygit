@@ -42,6 +42,12 @@ def deldhcp(id):
     model.deldhcp(id)
     redirect("/")
 
+#タスク表示ページ
+@route('/task')
+def task():
+    result = model.task(1)
+    return template('task', result = result)
+
 
 #post送信先
 @post('/done')

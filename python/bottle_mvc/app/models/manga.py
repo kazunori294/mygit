@@ -5,6 +5,34 @@ import app.models.pager as pager
 
 class Manga:
 
+
+    # ==========================================
+    #
+    # タスク一覧を取得するやーつ
+    #
+    # ==========================================
+
+    def task(self, page):
+
+        define_page = 100
+        start = (page - 1) * define_page
+
+        result = {}
+
+        sql = "select count(task_id) as all_count from task"
+        db.con.execute(sql)
+        result = db.con.fetchone()
+
+        result["pagination"] = pager.Pagination(page, define_page, result["all_count"])
+
+        sql = "select * from task order by task_id DESC"
+        sql += ' limit %s, %s'
+        db.con.execute(sql, (start, define_page))
+        result["tasklist"] = db.con.fetchall()
+
+        return result
+
+
     # ==========================================
     # 
     # マンガ一覧を取得するやーつ
@@ -128,4 +156,22 @@ class Manga:
         sql = "update iplist set dhcp='unset' where id = %s"
         db.con.execute(sql, (id))
         db.dbhandle.commit()
+
+        sql = "select * from iplist where id = %s"
+        db.con.execute(sql,(id))
+        result = db.con.fetchone()
+ 
+        f = open('/dhcp/dhcpd-reservations.conf')
+        lines = f.readlines()
+        f.close()
+
+        fp = open('/dhcp/dhcpd-reservations.conf', 'w')
+        
+        ipaddress = str(result["ipaddress"])       
+        for line in lines:
+          if not ipaddress in line:
+            fp.write(line)
+
+        fp.close()
+
         return

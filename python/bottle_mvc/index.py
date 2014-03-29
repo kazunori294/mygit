@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import sys
+import bottle
 sys.path.append('libs')
+bottle.debug(True)
 
 from bottle import route, static_file, default_app
 from app.controllers import *
@@ -16,7 +18,7 @@ def server_static(filepath):
 
 ## bottle単品で動かしたい場合
 from bottle import run
-run(host='0.0.0.0', port=3000)
+run(host='0.0.0.0', port=3000,reloader=True)
 
 ## gunicornを使う場合
 #app = default_app()
