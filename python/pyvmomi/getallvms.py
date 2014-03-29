@@ -27,7 +27,6 @@ import atexit
 import sys
 import pyVmomi
 
-vm = {}
 
 def GetArgs():
    """
@@ -41,25 +40,22 @@ def GetArgs():
    args = parser.parse_args()
    return args
 
-def GetVmInfo(vm):
+def GetVmInfo(vminfos,vm):
    """
    Print information for a particular virtual machine.
    """
    summary = vm.summary
-   vminfo
-   
-   
-
-   #vminfo = {}
-   #vminfo["name"] = summary.config.name
-   #vminfo["vmPathName"] = summary.config.vmPathName
-   #vminfo["instanceUuid"] = summary.config.instanceUuid
-   #vminfo["numCpu"] = summary.config.numCpu
-   #vminfo["memorySizeMB"] = summary.config.memorySizeMB
-   #for device in vm.config.hardware.device:
-   #   if device.deviceInfo.summary == 'VLAN 12':
-   #      vminfo["macAddress"] = device.macAddress
-   #print vminfo
+   vminfo = {}
+   vminfo["name"] = summary.config.name
+   vminfo["vmPathName"] = summary.config.vmPathName
+   vminfo["instanceUuid"] = summary.config.instanceUuid
+   vminfo["numCpu"] = summary.config.numCpu
+   vminfo["memorySizeMB"] = summary.config.memorySizeMB
+   for device in vm.config.hardware.device:
+      if device.deviceInfo.summary == 'VLAN 12':
+         vminfo["macAddress"] = device.macAddress
+   vminfos.append(vminfo)
+   print vminfos
 
 
 def PrintVmInfo(vm):
@@ -108,14 +104,15 @@ def main():
       datacenter = content.rootFolder.childEntity[0]
       vmFolder = datacenter.vmFolder
       vmList = vmFolder.childEntity
+      vminfos = []
       for target in vmList:
          if type(target) == pyVmomi.types.vim.Folder:
             vms = target.childEntity
             for vm in vms:
-               GetVmInfo(vm)
+               GetVmInfo(vminfos, vm)
          else:
             vm = target
-            GetVmInfo(vm)
+            GetVmInfo(vminfos, vm)
    except vmodl.MethodFault, e:
       print "Caught vmodl fault : " + e.msg
       return -1
