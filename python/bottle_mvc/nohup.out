@@ -84,3 +84,98 @@ Hit Ctrl-C to quit.
   fname = self.search(name, self.lookup)
 192.168.1.4 - - [30/Mar/2014 15:53:17] "GET / HTTP/1.1" 200 6983
 Caught exception : global name 'vim' is not defined
+Bottle v0.12.5 server starting up (using WSGIRefServer())...
+Listening on http://0.0.0.0:3000/
+Hit Ctrl-C to quit.
+
+/usr/lib/python2.6/site-packages/bottle.py:3320: DeprecationWarning: Absolute template path names are deprecated.
+  fname = self.search(name, self.lookup)
+192.168.1.4 - - [30/Mar/2014 16:14:41] "GET / HTTP/1.1" 200 7071
+192.168.1.4 - - [30/Mar/2014 16:14:55] "GET /newvm HTTP/1.1" 200 1452
+192.168.1.4 - - [30/Mar/2014 16:18:59] "GET /task HTTP/1.1" 200 10383
+192.168.1.4 - - [30/Mar/2014 16:19:01] "GET /task HTTP/1.1" 200 10383
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/bottle.py", line 862, in _handle
+    return route.call(**args)
+  File "/usr/lib/python2.6/site-packages/bottle.py", line 1727, in wrapper
+    rv = callback(*a, **ka)
+  File "/root/git/python/bottle_mvc/app/controllers/manga.py", line 24, in vmlist
+    return template('vmlist', vminfos = vminfos)
+  File "/usr/lib/python2.6/site-packages/bottle.py", line 3587, in template
+    return TEMPLATES[tplid].render(kwargs)
+  File "/usr/lib/python2.6/site-packages/bottle.py", line 3317, in render
+    return self.tpl.render(**_defaults)
+  File "/usr/lib/python2.6/site-packages/jinja2/environment.py", line 969, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/lib/python2.6/site-packages/jinja2/environment.py", line 742, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "<template>", line 21, in top-level template code
+TypeError: 'int' object is not iterable
+192.168.1.4 - - [30/Mar/2014 16:19:09] "GET /vmlist HTTP/1.1" 500 2020
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/bottle.py", line 862, in _handle
+    return route.call(**args)
+  File "/usr/lib/python2.6/site-packages/bottle.py", line 1727, in wrapper
+    rv = callback(*a, **ka)
+  File "/root/git/python/bottle_mvc/app/controllers/manga.py", line 24, in vmlist
+    return template('vmlist', vminfos = vminfos)
+  File "/usr/lib/python2.6/site-packages/bottle.py", line 3587, in template
+    return TEMPLATES[tplid].render(kwargs)
+  File "/usr/lib/python2.6/site-packages/bottle.py", line 3317, in render
+    return self.tpl.render(**_defaults)
+  File "/usr/lib/python2.6/site-packages/jinja2/environment.py", line 969, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/lib/python2.6/site-packages/jinja2/environment.py", line 742, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "<template>", line 21, in top-level template code
+TypeError: 'int' object is not iterable
+192.168.1.4 - - [30/Mar/2014 16:19:33] "GET /vmlist HTTP/1.1" 500 2020
+192.168.1.4 - - [30/Mar/2014 16:33:14] "GET /vmlist HTTP/1.1" 200 18142
+192.168.1.4 - - [30/Mar/2014 16:33:14] "GET /stat/css/style.css HTTP/1.1" 304 0
+192.168.1.4 - - [30/Mar/2014 16:35:15] "GET / HTTP/1.1" 200 7071
+192.168.1.4 - - [30/Mar/2014 16:35:15] "GET /favicon.ico HTTP/1.1" 404 746
+192.168.1.4 - - [30/Mar/2014 16:35:17] "GET /newvm HTTP/1.1" 200 1452
+192.168.1.4 - - [30/Mar/2014 16:35:23] "POST /newvmdone HTTP/1.1" 303 0
+192.168.1.4 - - [30/Mar/2014 16:35:23] "GET / HTTP/1.1" 200 7071
+192.168.1.4 - - [30/Mar/2014 16:35:28] "GET /newvm HTTP/1.1" 200 1452
+192.168.1.4 - - [30/Mar/2014 16:35:41] "POST /newvmdone HTTP/1.1" 303 0
+192.168.1.4 - - [30/Mar/2014 16:35:41] "GET / HTTP/1.1" 200 7071
+192.168.1.4 - - [30/Mar/2014 16:35:43] "GET /task HTTP/1.1" 200 10833
+192.168.1.4 - - [30/Mar/2014 20:14:22] "GET / HTTP/1.1" 200 7071
+192.168.1.4 - - [30/Mar/2014 20:14:22] "GET /stat/css/style.css HTTP/1.1" 304 0
+192.168.1.4 - - [30/Mar/2014 20:14:22] "GET /favicon.ico HTTP/1.1" 404 746
+192.168.1.4 - - [30/Mar/2014 20:15:05] "GET /vmlist HTTP/1.1" 200 15090
+192.168.1.4 - - [30/Mar/2014 20:15:14] "GET /newvm HTTP/1.1" 200 1452
+192.168.1.4 - - [30/Mar/2014 20:15:17] "GET / HTTP/1.1" 200 7071
+192.168.1.4 - - [30/Mar/2014 20:15:25] "GET /task HTTP/1.1" 200 12758
+192.168.1.4 - - [30/Mar/2014 20:25:24] "GET / HTTP/1.1" 200 7357
+192.168.1.4 - - [30/Mar/2014 20:25:26] "GET / HTTP/1.1" 200 7357
+192.168.1.4 - - [30/Mar/2014 20:25:28] "GET / HTTP/1.1" 200 7357
+192.168.1.4 - - [30/Mar/2014 20:25:28] "GET /new HTTP/1.1" 200 2119
+192.168.1.4 - - [30/Mar/2014 20:25:31] "GET /new HTTP/1.1" 200 2119
+192.168.1.4 - - [30/Mar/2014 20:27:49] "GET / HTTP/1.1" 200 7355
+192.168.1.4 - - [30/Mar/2014 20:28:00] "GET / HTTP/1.1" 200 7357
+192.168.1.4 - - [30/Mar/2014 20:29:05] "GET / HTTP/1.1" 200 7406
+192.168.1.4 - - [30/Mar/2014 20:29:58] "GET / HTTP/1.1" 200 7408
+192.168.1.4 - - [30/Mar/2014 20:30:07] "GET /new HTTP/1.1" 200 2456
+192.168.1.4 - - [30/Mar/2014 20:33:01] "GET /task HTTP/1.1" 200 12758
+192.168.1.4 - - [30/Mar/2014 20:33:15] "GET /task HTTP/1.1" 200 12758
+192.168.1.4 - - [30/Mar/2014 20:33:22] "GET / HTTP/1.1" 200 7469
+192.168.1.4 - - [30/Mar/2014 20:34:18] "GET / HTTP/1.1" 200 7469
+192.168.1.4 - - [30/Mar/2014 20:35:30] "GET /vmlist HTTP/1.1" 200 15488
+192.168.1.4 - - [30/Mar/2014 20:35:30] "GET /new HTTP/1.1" 200 2517
+192.168.1.4 - - [30/Mar/2014 20:35:35] "GET /vmlist HTTP/1.1" 200 15488
+192.168.1.4 - - [30/Mar/2014 20:35:37] "GET /vmlist HTTP/1.1" 200 15488
+192.168.1.4 - - [30/Mar/2014 20:35:37] "GET /task HTTP/1.1" 200 13196
+192.168.1.4 - - [30/Mar/2014 20:36:32] "GET /vmlist HTTP/1.1" 200 15488
+192.168.1.4 - - [30/Mar/2014 20:36:53] "GET /vmlist HTTP/1.1" 200 15489
+192.168.1.4 - - [30/Mar/2014 20:36:55] "GET /task HTTP/1.1" 200 13102
+192.168.1.4 - - [30/Mar/2014 20:36:57] "GET /task HTTP/1.1" 200 13102
+192.168.1.4 - - [30/Mar/2014 20:37:01] "GET / HTTP/1.1" 200 7470
+192.168.1.4 - - [30/Mar/2014 20:37:02] "GET / HTTP/1.1" 200 7470
+192.168.1.4 - - [30/Mar/2014 20:37:03] "GET /new HTTP/1.1" 200 2518
+192.168.1.4 - - [30/Mar/2014 20:37:05] "GET /vmlist HTTP/1.1" 200 15489
+192.168.1.4 - - [30/Mar/2014 20:37:07] "GET /task HTTP/1.1" 200 13102
+192.168.1.4 - - [30/Mar/2014 20:37:19] "GET /task HTTP/1.1" 200 12919
+192.168.1.4 - - [30/Mar/2014 20:37:21] "GET / HTTP/1.1" 200 7470
+192.168.1.4 - - [30/Mar/2014 20:38:22] "GET / HTTP/1.1" 200 7523
