@@ -256,3 +256,19 @@ TypeError: 'int' object is not iterable
 192.168.1.4 - - [30/Mar/2014 23:26:50] "GET /newvm HTTP/1.1" 200 1904
 192.168.1.4 - - [31/Mar/2014 00:28:42] "GET / HTTP/1.1" 200 7310
 192.168.1.4 - - [31/Mar/2014 00:28:42] "GET /stat/css/style.css HTTP/1.1" 304 0
+Caught exception : list index out of range
+Caught exception : list index out of range
+Traceback (most recent call last):
+  File "index.py", line 9, in <module>
+    from app.controllers import *
+  File "/root/git/python/bottle_mvc/app/controllers/manga.py", line 91
+    return template('upload'):
+                             ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "index.py", line 9, in <module>
+    from app.controllers import *
+  File "/root/git/python/bottle_mvc/app/controllers/manga.py", line 91
+    return template('upload'):
+                             ^
+SyntaxError: invalid syntax

@@ -2,6 +2,8 @@
 
 import sys
 sys.path.append('libs')
+import os
+import csv
 
 from bottle import route, post, request, redirect, jinja2_template as template
 
@@ -85,3 +87,22 @@ def newvmdone():
     vmware.clonevm(post_data)
     redirect("/")
 
+#fileuploadテストページ
+@route('/upload')
+def upload():
+    return template('upload')
+
+
+#fileuploadpost用
+@post('/uploaddone')
+def uploaddone():
+    upload = request.files.get('upload')
+    name, ext = os.path.splitext(upload.filename)
+    #if ext not in ('.csv'):
+    #   return 'File extension not allowed.'
+    upload.save('/tmp')
+    f = open('/tmp/test.csv', 'rb')
+    dataReader = csv.reader(f)
+    for row in dataReader:
+      print row
+    return 'OK'

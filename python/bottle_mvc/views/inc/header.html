@@ -6,6 +6,7 @@
 	<title>かずたんラボアプリ</title>
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
 	<link rel="stylesheet" href="/stat/css/style.css">
+	<link rel="stylesheet" href="/stat/css/nav.css">
 </head>
 <body>
 
@@ -24,3 +25,33 @@
          </ul>
         </div>
 
+
+
+<nav>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="#">List</a>
+			<ul>
+				<li><a href="/">IP List</a>
+                                       <ul>
+                                                <li><a href="#">VLAN12</a></li>
+                                                <li><a href="#">VLANxx</a></li>
+                                        </ul>
+				</li>
+				<li><a href="/vmlist">VM List</a></li>
+				<li><a href="/task">Task List</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Register</a>
+			<ul>
+				<li><a href="/new">New IP</a></li>
+				<li><a href="/newvm">New VM</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Other</a>
+                        <ul>
+                                <li><a href="/upload">Upload</a></li>
+                        </ul>
+                </li>
+	</ul>
+</nav>
