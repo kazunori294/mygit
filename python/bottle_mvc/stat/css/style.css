@@ -56,3 +56,17 @@ body {
 .pure-button-secondary {
   background: rgb(66, 184, 221); /* 水色 */
 }
+
+/*全てのテーブルの設定*/
+.pure-table-header {
+  background: rgb(66, 184, 221); /* 水色 */
+}
+
+
+/* オリジナル.pure-table thead{background:#e0e0e0;color:#000;text-align:left;vertical-align:bottom}*/
+.pure-table thead {
+  background:#153FA1;
+  color:#F0F0F0;
+  text-align:left;
+  vertical-align:bottom
+}
