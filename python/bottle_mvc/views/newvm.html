@@ -1,0 +1,27 @@
+{% include "inc/header" %}
+
+	<div class="box">
+		<form class="pure-form" method="post" action="/newvmdone">
+		<table class="pure-table pure-table-bordered">
+
+		    <tbody>
+		    	<tr>
+		            <td>VM Name</td>
+		            <td><input type="text" placeholder="" name="vmname"></td>
+		        </tr>
+
+		  		<tr>
+		  			<td colspan="2" align="center">
+		  				<button type="submit" class="pure-button pure-button-primary">作成する</button>
+		  			</td>
+		  		</tr>
+		    </tbody>
+		</table>
+		</form>
+	</div>
+
+	<div class="menu">
+		<a href="/"><button class="pure-button pure-button-small">一覧に戻る</button></a>
+	</div>
+
+{% include "inc/footer" %}

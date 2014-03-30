@@ -1,0 +1,86 @@
+Bottle v0.12.5 server starting up (using WSGIRefServer())...
+Listening on http://0.0.0.0:3000/
+Hit Ctrl-C to quit.
+
+/usr/lib/python2.6/site-packages/bottle.py:3320: DeprecationWarning: Absolute template path names are deprecated.
+  fname = self.search(name, self.lookup)
+192.168.1.4 - - [30/Mar/2014 08:21:41] "GET / HTTP/1.1" 200 6819
+192.168.1.4 - - [30/Mar/2014 08:21:41] "GET /stat/css/style.css HTTP/1.1" 304 0
+192.168.1.4 - - [30/Mar/2014 08:22:14] "GET /task HTTP/1.1" 200 7392
+192.168.1.4 - - [30/Mar/2014 08:22:24] "GET /task HTTP/1.1" 200 7392
+192.168.1.4 - - [30/Mar/2014 08:22:25] "GET /task HTTP/1.1" 200 7392
+192.168.1.4 - - [30/Mar/2014 08:22:27] "GET /task HTTP/1.1" 200 7392
+192.168.1.4 - - [30/Mar/2014 08:22:30] "GET /task HTTP/1.1" 200 7392
+192.168.1.4 - - [30/Mar/2014 08:23:27] "GET /task HTTP/1.1" 200 7388
+192.168.1.4 - - [30/Mar/2014 08:23:30] "GET / HTTP/1.1" 200 6815
+192.168.1.4 - - [30/Mar/2014 08:23:37] "GET /setdhcp/15 HTTP/1.1" 303 0
+192.168.1.4 - - [30/Mar/2014 08:23:37] "GET / HTTP/1.1" 200 6813
+192.168.1.4 - - [30/Mar/2014 08:23:38] "GET /setdhcp/15 HTTP/1.1" 303 0
+192.168.1.4 - - [30/Mar/2014 08:23:38] "GET / HTTP/1.1" 200 6813
+192.168.1.4 - - [30/Mar/2014 08:23:39] "GET /deldhcp/15 HTTP/1.1" 303 0
+192.168.1.4 - - [30/Mar/2014 08:23:39] "GET / HTTP/1.1" 200 6815
+192.168.1.4 - - [30/Mar/2014 08:23:55] "GET /setdhcp/15 HTTP/1.1" 303 0
+192.168.1.4 - - [30/Mar/2014 08:23:55] "GET / HTTP/1.1" 200 6813
+192.168.1.4 - - [30/Mar/2014 08:24:05] "GET /deldhcp/15 HTTP/1.1" 303 0
+192.168.1.4 - - [30/Mar/2014 08:24:05] "GET / HTTP/1.1" 200 6815
+192.168.1.4 - - [30/Mar/2014 08:24:56] "GET / HTTP/1.1" 200 6815
+192.168.1.4 - - [30/Mar/2014 08:25:02] "GET /task HTTP/1.1" 200 7388
+192.168.1.4 - - [30/Mar/2014 13:09:52] "GET / HTTP/1.1" 200 6815
+192.168.1.4 - - [30/Mar/2014 13:09:52] "GET /stat/css/style.css HTTP/1.1" 304 0
+192.168.1.4 - - [30/Mar/2014 13:09:53] "GET /favicon.ico HTTP/1.1" 404 746
+192.168.1.4 - - [30/Mar/2014 13:09:55] "GET /task HTTP/1.1" 200 7388
+Bottle v0.12.5 server starting up (using WSGIRefServer())...
+Listening on http://0.0.0.0:3000/
+Hit Ctrl-C to quit.
+
+/usr/lib/python2.6/site-packages/bottle.py:3320: DeprecationWarning: Absolute template path names are deprecated.
+  fname = self.search(name, self.lookup)
+192.168.1.4 - - [30/Mar/2014 13:57:01] "GET / HTTP/1.1" 200 6815
+192.168.1.4 - - [30/Mar/2014 13:57:01] "GET /stat/css/style.css HTTP/1.1" 304 0
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/bottle.py", line 862, in _handle
+    return route.call(**args)
+  File "/usr/lib/python2.6/site-packages/bottle.py", line 1727, in wrapper
+    rv = callback(*a, **ka)
+  File "/root/git/python/bottle_mvc/app/controllers/manga.py", line 22, in new
+    vminfos = vmware.getvm()
+NameError: global name 'vmware' is not defined
+192.168.1.4 - - [30/Mar/2014 13:57:06] "GET /vmlist HTTP/1.1" 500 1377
+Bottle v0.12.5 server starting up (using WSGIRefServer())...
+Listening on http://0.0.0.0:3000/
+Hit Ctrl-C to quit.
+
+/usr/lib/python2.6/site-packages/bottle.py:3320: DeprecationWarning: Absolute template path names are deprecated.
+  fname = self.search(name, self.lookup)
+192.168.1.4 - - [30/Mar/2014 15:16:31] "GET / HTTP/1.1" 200 6983
+Bottle v0.12.5 server starting up (using WSGIRefServer())...
+Listening on http://0.0.0.0:3000/
+Hit Ctrl-C to quit.
+
+/usr/lib/python2.6/site-packages/bottle.py:3320: DeprecationWarning: Absolute template path names are deprecated.
+  fname = self.search(name, self.lookup)
+192.168.1.4 - - [30/Mar/2014 15:32:54] "GET /newvm HTTP/1.1" 200 1500
+192.168.1.4 - - [30/Mar/2014 15:32:54] "GET /stat/css/style.css HTTP/1.1" 304 0
+Bottle v0.12.5 server starting up (using WSGIRefServer())...
+Listening on http://0.0.0.0:3000/
+Hit Ctrl-C to quit.
+
+Bottle v0.12.5 server starting up (using WSGIRefServer())...
+Listening on http://0.0.0.0:3000/
+Hit Ctrl-C to quit.
+
+/usr/lib/python2.6/site-packages/bottle.py:3320: DeprecationWarning: Absolute template path names are deprecated.
+  fname = self.search(name, self.lookup)
+192.168.1.4 - - [30/Mar/2014 15:51:37] "GET /newvm HTTP/1.1" 200 1500
+192.168.1.4 - - [30/Mar/2014 15:51:45] "POST /newvmdone HTTP/1.1" 303 0
+192.168.1.4 - - [30/Mar/2014 15:51:45] "GET / HTTP/1.1" 200 6983
+Caught exception : global name 'vim' is not defined
+Bottle v0.12.5 server starting up (using WSGIRefServer())...
+Listening on http://0.0.0.0:3000/
+Hit Ctrl-C to quit.
+
+192.168.1.4 - - [30/Mar/2014 15:53:16] "POST /newvmdone HTTP/1.1" 303 0
+/usr/lib/python2.6/site-packages/bottle.py:3320: DeprecationWarning: Absolute template path names are deprecated.
+  fname = self.search(name, self.lookup)
+192.168.1.4 - - [30/Mar/2014 15:53:17] "GET / HTTP/1.1" 200 6983
+Caught exception : global name 'vim' is not defined

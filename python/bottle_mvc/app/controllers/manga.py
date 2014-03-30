@@ -7,7 +7,8 @@ from bottle import route, post, request, redirect, jinja2_template as template
 
 import app.models.manga
 model = app.models.manga.Manga()
-
+import app.models.vmware
+vmware = app.models.vmware.VMware()
 
 #一覧ページ
 @route('/')
@@ -18,9 +19,9 @@ def index(page=1):
 
 #VMリストページ
 @route('/vmlist')
-def new():
-    model.vmlist()
-    return template('vmlist')
+def vmlist():
+    vminfos = vmware.getvm()
+    return template('vmlist', vminfos = vminfos)
 
 
 #新規登録ページ
@@ -68,5 +69,19 @@ def done():
     post_data["del"] = request.forms.get('del')
 
     model.done(post_data)
-
     redirect("/")
+
+#VM作成ページ
+@route('/newvm')
+def newvm():
+    return template('newvm')
+
+#vmclone用post送信先
+@post('/newvmdone')
+def newvmdone():
+    post_data = {}
+    post_data["vmname"] = request.forms.get('vmname')
+
+    vmware.clonevm(post_data)
+    redirect("/")
+

@@ -1,0 +1,38 @@
+{% include "inc/header" %}
+
+
+	<div class="box">
+		<table class="pure-table pure-table-bordered">
+
+                    <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>IP address</th>
+                            <th>mac address</th>
+                            <th>Power</th>
+                            <th>uuid</th>
+                            <th>vCPU</th>
+                            <th>Memory</th>
+                            <th>vmPath</th>
+                        </tr>
+                    </thead>
+
+		    <tbody>
+		    	{% for vm in vminfos %}
+		        <tr>
+		            <td>{{vm.name}}</td>
+		            <td>{{vm.ipAddress}}</td>
+		            <td>{{vm.macAddress}}</td>
+		            <td>{{vm.powerState}}</td>
+		            <td>{{vm.instanceUuid}}</td>
+		            <td>{{vm.numCpu}}</td>
+		            <td>{{vm.memorySizeMB}}</td>
+		            <td>{{vm.vmPathName}}</td>
+		        </tr>
+		        {% endfor %}
+		    </tbody>
+		</table>
+	</div>
+
+
+{% include "inc/footer" %}
